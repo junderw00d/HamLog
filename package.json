@@ -1,0 +1,12 @@
+{
+  "name": "HamLog",
+  "version": "1.0.0",
+  "description": "Radio logging software",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
+}
