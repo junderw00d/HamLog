@@ -1,0 +1,32 @@
+<html>
+<head>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>HamLog</h1>
+  <button id="addContactButton">Add contact</button>
+
+<footer>
+<p>Hello world</p>
+</footer>
+  <script>
+
+const ipc = require('electron').ipcRenderer
+
+
+document.getElementById("addContactButton").onclick = function() {
+window.alert("hello")
+ipc.send('asynchronous-message', 'ping')
+
+};
+
+ipc.on('asynchronous-reply', function (event, arg) {
+  const message = `Asynchronous message reply: ${arg}`
+  document.getElementById('async-reply').innerHTML = message
+})
+
+
+  </script>
+
+</body>
+</html>
