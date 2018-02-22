@@ -1,32 +1,96 @@
+<!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <h1>HamLog</h1>
-  <button id="addContactButton">Add contact</button>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HamLog</title>
 
-<footer>
-<p>Hello world</p>
-</footer>
-  <script>
+    <!-- Photon.css -->
+    <link rel="stylesheet" href="photon/css/photon.css">
 
-const ipc = require('electron').ipcRenderer
+    <style>
+      .window {
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .sidebar {
+        background-color: #f5f5f4;
+      }
+      #add {
+        text-align:center;
+background-color: #DEE1FB;
+      }
+      th {
+        padding:1px;
+        text-align: center;
+      }
+      header {
+        text-align: center;
+        padding:0px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
 
 
-document.getElementById("addContactButton").onclick = function() {
-window.alert("hello")
-ipc.send('asynchronous-message', 'ping')
+      <div class="window-content">
 
-};
+          <div class="pane">
+            <header class="toolbar toolbar-header">
+              <h4>HamLog</h4>
+            </header>
+            <table class="table-striped">
+              <thead>
+                <tr>
+                  <th><h5>Date</h5></th>
+                  <th><h5>Frequency</h5></th>
+                  <th><h5>Callsign</h5></th>
+                  <th><h5>Comments</h5></th>
+                </tr>
+              </thead>
+              <tbody>
 
-ipc.on('asynchronous-reply', function (event, arg) {
-  const message = `Asynchronous message reply: ${arg}`
-  document.getElementById('async-reply').innerHTML = message
-})
+                <tr>
+                  <td>February 10, 2018</td>
+                  <td>146.970</td>
+                  <td>AD9ABC</td>
+                  <td>Got licensed last week. Looking for Elmer.</td>
+                </tr>
+                <tr>
+                  <td>February 12, 2018</td>
+                  <td>148.200</td>
+                  <td>AB1ABC</td>
+                  <td>Lives at end of Main St. and has been licensed for 30 years.</td>
+                </tr>
+                <tr>
+                  <td>February 13, 2018</td>
+                  <td>146.970</td>
+                  <td>RA4IO</td>
+                  <td>Operator is a student who is very interested in collecting coins.</td>
+                </tr>
+                <tr>
+                  <td>February 13, 2018</td>
+                  <td>146.970</td>
+                  <td>AB9CBA</td>
+                  <td>Operator just recieved successfully obtained Extra license. Was mobile on way back from exam.</td>
+                </tr>
+                <tr>
+                  <td>February 14, 2018</td>
+                  <td>144.820</td>
+                  <td>KG9ABC</td>
+                  <td>Operator is annoying. Do not allow further contact.</td>
+                </tr>
+                <tr id='add'>
+                  <td colspan="4"><b>Add a contact</b></td>
+                </tr>
 
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-  </script>
-
-</body>
+  </body>
 </html>
