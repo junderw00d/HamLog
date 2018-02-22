@@ -6,11 +6,14 @@ Want to try it out?
 Download and install the files:
 <code>
 sudo git clone https://github.com/KoalaMuffin/HamLog.git
-<br>
+</code>
+<code>
 cd HamLog
-<br>
+</code>
+<code>
 npm install
-<br>
+</code>
+<code>
 npm start
 </code>
 Electron requires NodeJS and NPM, I believe.
