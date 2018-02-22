@@ -4,16 +4,10 @@ HamLog is a work in progress software I am developing for logging ham radio cont
 <br>
 Want to try it out?
 Download and install the files:
-<code>
+<pre>
 sudo git clone https://github.com/KoalaMuffin/HamLog.git
-</code>
-<code>
 cd HamLog
-</code>
-<code>
 npm install
-</code>
-<code>
 npm start
-</code>
+</pre>
 Electron requires NodeJS and NPM, I believe.
