@@ -5,5 +5,5 @@ app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     title:"HamLog",
   })
-  mainWindow.loadURL('file://' + __dirname + '/index.html')
+  mainWindow.loadURL('file://' + __dirname + '/app.html')
 })
