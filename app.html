@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HamLog</title>
+
+    <link rel="stylesheet" href="photon/css/photon.css">
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <div class="window">
+
+
+      <div class="window-content">
+
+          <div class="pane">
+            <header class="toolbar toolbar-header">
+              <h4>HamLog</h4>
+            </header>
+            <table class="table-striped">
+              <thead>
+                <tr>
+                  <th><h5>Date</h5></th>
+                  <th><h5>Frequency</h5></th>
+                  <th><h5>Callsign</h5></th>
+                  <th><h5>Comments</h5></th>
+                </tr>
+              </thead>
+              <tbody id="contacts-row">
+              </tbody>
+              <tbody id="table-control">
+                <tr id="input-row">
+                  <td><input class="form-control" placeholder="Date" id="date-input"></td>
+                  <td><input class="form-control" placeholder="Frequency" id="frequency-input"></td>
+                  <td><input class="form-control" placeholder="Callsign" id="callsign-input"></td>
+                  <td><input class="form-control" placeholder="Comments" id="comments-input"></td>
+                </tr>
+                <tr id="add-button">
+                  <td colspan="4" class="button">Add a contact</td>
+                </tr>
+                <tr id="smit-button">
+                  <td colspan="4" class="button">Submit</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <script src="app.js"></script>
+  </body>
+</html>
