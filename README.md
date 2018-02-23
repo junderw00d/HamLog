@@ -15,5 +15,5 @@ Electron requires NodeJS and NPM, I believe.
 <ul>
   <li>Switch from Photon to native (original) or maintained framework.</li>
   <li>Potentially use a different storage system than LocalStorage.</li>
-  <li>Switch from Electron-Packager to Electron-Builder</li>
-  </ul>
+  <li>Switch from Electron-Packager to Electron-Builder.</li>
+</ul>
