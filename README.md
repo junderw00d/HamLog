@@ -11,3 +11,9 @@ npm install
 npm start
 </pre>
 Electron requires NodeJS and NPM, I believe.
+<p>What still needs to be done:
+<ul>
+  <li>Switch from Photon to native (original) or maintained framework.</li>
+  <li>Potentially use a different storage system than LocalStorage.</li>
+  <li>Switch from Electron-Packager to Electron-Builder</li>
+  </ul>
