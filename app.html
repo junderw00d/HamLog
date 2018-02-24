@@ -11,19 +11,19 @@
             <header>
               <h4 id="header-h4">HamLog</h4>
             </header>
-<!--
+
            <div id="controls">
            <table>
             <tr>
-<td class="button">Click me!</td>
+<td class="button" id="clear">Clear Storage</td>
 <td class="button">Click me!</td>
 <td class="button">Click me!</td>
 </tr>
 </table>
--->
+
 
             </div>
-            <table>
+            <table id="contacts-table">
               <thead>
                 <tr>
                   <th><h5>Date</h5></th>
@@ -32,11 +32,11 @@
                   <th><h5>Comments</h5></th>
                 </tr>
               </thead>
-              <tbody id="contacts-row">
+              <tbody id="contacts-body">
               </tbody>
               <tbody id="table-control">
                 <tr id="input-row">
-                  <td><input placeholder="Date" id="date-input"></td>
+                  <td><input placeholder="Date" id="date-input" type="date"></td>
                   <td><input placeholder="Frequency" id="frequency-input"></td>
                   <td><input placeholder="Callsign" id="callsign-input"></td>
                   <td><input placeholder="Comments" id="comments-input"></td>
