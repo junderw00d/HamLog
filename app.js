@@ -4,7 +4,6 @@ function idSelector(id) {
 
 var tr, data;
 
-alert(localStorage.data);
 if (localStorage.length !== 1) {
   localStorage.clear();
   localStorage.data = "{\"contacts\":[]}"
