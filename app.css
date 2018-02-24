@@ -1,3 +1,8 @@
+body {
+  font-family:.SFNSDisplay-Regular;
+  font-size: 13px;
+}
+
 td {
   padding:5px;
 }
@@ -15,6 +20,9 @@ th {
 header {
   text-align: center;
   padding:0px;
+  background-image: linear-gradient(to bottom, #e8e6e8 0%, #d1cfd1 100%);
+  background-color: #e8e6e8;
+  min-height: 22px;
 }
 .button {
   font-weight: bold;
