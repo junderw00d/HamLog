@@ -5,9 +5,13 @@ body {
   font-size:13px;
   background-color:white;
 }
-#contacts-row td {
+#contacts-body td {
   padding:5px 15px;
   border-right:0;
+}
+#contacts-table {
+  //height:100%;
+  overflow:hidden;
 }
 th {
   padding:1px;
@@ -27,12 +31,16 @@ header {
   -webkit-app-region:drag;
   background-color:#e8e6e8;
   background-image:linear-gradient(to bottom, #e8e6e8 0%, #d1cfd1 100%);
+
 }
 .button {
   font-weight:bold;
   background-color:#6eb4f7;
+  border: 1px solid #6eb4f7;
+  margin:2px;
   color:white;
   text-align:center;
+  font-family:"Verdana";
 }
 table {
   width:100%;
@@ -40,6 +48,7 @@ table {
   border:0;
   border-collapse:collapse;
   border-spacing:0;
+
 }
 h4 {
   font-size:18px;
@@ -77,11 +86,29 @@ input {
 input:focus {
   border-color:#6db3fd;
 }
+#search {
+  border-radius:0 !important;
+}
 tr {
   height:20px;
 }
 #controls {
   background-color:#EEEDEE;
-  padding:20px;
+  padding:10px;
   margin:0;
+}
+footer {
+//position:absolute;
+width:100%;
+   background-color:#e8e6e8;
+   bottom:0;
+   height:auto;   /* Height of the footer */
+   padding:10px;
+   text-align:center;
+}
+#callsign-input {
+  text-transform:uppercase;
+}
+::-webkit-input-placeholder {
+    text-transform: none;
 }
