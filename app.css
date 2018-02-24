@@ -1,35 +1,87 @@
 body {
-  font-family:.SFNSDisplay-Regular;
-  font-size: 13px;
+  padding:0;
+  margin:0;
+  font-family:system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-size:13px;
+  background-color:white;
 }
-
-td {
-  padding:5px;
-}
-.window {
-  border-radius: 6px;
-  overflow: hidden;
-}
-.sidebar {
-  background-color: #f5f5f4;
+#contacts-row td {
+  padding:5px 15px;
+  border-right:0;
 }
 th {
   padding:1px;
-  text-align: center;
+  text-align:center;
+  font-weight:normal;
+  border-right:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+  border-top:1px solid #ddd;
+}
+th:last-child {
+  border-right:0;
 }
 header {
-  text-align: center;
-  padding:0px;
-  background-image: linear-gradient(to bottom, #e8e6e8 0%, #d1cfd1 100%);
-  background-color: #e8e6e8;
-  min-height: 22px;
+  text-align:center;
+  padding:5px;
+  min-height:30px;
+  -webkit-app-region:drag;
+  background-color:#e8e6e8;
+  background-image:linear-gradient(to bottom, #e8e6e8 0%, #d1cfd1 100%);
 }
 .button {
-  font-weight: bold;
-  background-color: #6eb4f7;
+  font-weight:bold;
+  background-color:#6eb4f7;
   color:white;
   text-align:center;
 }
+table {
+  width:100%;
+  font-size:12px;
+  border:0;
+  border-collapse:collapse;
+  border-spacing:0;
+}
+h4 {
+  font-size:18px;
+  margin-top:20px;
+  margin-bottom:10px;
+  font-weight:500;
+  white-space:nowrap;
+  user-select:none;
+  cursor:default;
+}
 table tr:nth-child(even) {
-  background-color: #f5f5f4;
+  background-color:#f5f5f4;
+}
+thead {
+  background-color:#f5f5f4;
+}
+h5 {
+  font-size:14px;
+  margin-top:20px;
+  margin-bottom:10px;
+  font-weight:500;
+}
+input {
+  width:100%;
+  min-height:25px;
+  padding:5px 10px;
+  font-size:13px;
+  line-height:1.6;
+  background-color:#fff;
+  border:1px solid #ddd;
+  border-radius:4px;
+  outline:none;
+  transition:border-color 0.2s;
+}
+input:focus {
+  border-color:#6db3fd;
+}
+tr {
+  height:20px;
+}
+#controls {
+  background-color:#EEEDEE;
+  padding:20px;
+  margin:0;
 }
