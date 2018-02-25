@@ -3,51 +3,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HamLog</title>
-
     <link rel="stylesheet" href="app.css">
   </head>
   <body>
-
-            <header>
-              <h4 id="header-h4">HamLog</h4>
-            </header>
-            <div id="controls">
-              <button class="button" id="clear" title="Permanently delete all logged contacts">Clear Storage</td>
-              <button class="button" id="export" title="Export data to file">Export Data</td>
-              <button class="button" id="import" title="Import data from file">Import Data</td>
-            </div>
-            <input id="search" placeholder="Search">
-            <table id="contacts-table">
-              <thead>
-                <tr>
-                  <th><h5>Date</h5></th>
-                  <th><h5>Frequency</h5></th>
-                  <th><h5>Callsign</h5></th>
-                  <th><h5>Comments</h5></th>
-                </tr>
-              </thead>
-              <tbody id="contacts-body">
-              </tbody>
-              <tbody id="table-control">
-                <tr id="input-row">
-                  <td><input placeholder="Date" id="date-input" type="date"></td>
-                  <td><input placeholder="Frequency" id="frequency-input" type="number" step="0.01"></td>
-                  <td><input placeholder="Callsign" id="callsign-input"></td>
-                  <td><input placeholder="Comments" id="comments-input"></td>
-                </tr>
-                <tr id="add-button">
-                  <td colspan="4" class="button">Add a contact</td>
-                </tr>
-                <tr id="smit-button">
-                  <td colspan="4" class="button">Submit</td>
-                </tr>
-
-              </tbody>
-            </table>
-            <!--<footer>
-<p id="source">View Sourcecode</p>
-</footer>-->
-
-      <script src="app.js"></script>
+    <header>
+      <h4 id="header-h4">HamLog</h4>
+    </header>
+    <div id="controls">
+      <button class="button" id="clear" title="Permanently delete all logged contacts">Clear Storage</td>
+      <button class="button" id="export" title="Export data to file">Export Data</td>
+      <button class="button" id="import" title="Import data from file">Import Data</td>
+    </div>
+    <input id="search" placeholder="Search" onkeyup="search()">
+    <table id="contacts-table">
+      <thead>
+        <tr>
+          <th><h5>Date</h5></th>
+          <th><h5>Frequency</h5></th>
+          <th><h5>Callsign</h5></th>
+          <th><h5>Comments</h5></th>
+        </tr>
+      </thead>
+      <tbody id="contacts-body">
+      </tbody>
+      <tbody id="table-control">
+        <tr id="input-row">
+          <td><input placeholder="Date" id="date-input" type="date"></td>
+          <td><input placeholder="Frequency" id="frequency-input" type="number" step="0.01"></td>
+          <td><input placeholder="Callsign" id="callsign-input"></td>
+          <td><input placeholder="Comments" id="comments-input"></td>
+        </tr>
+        <tr id="add-button">
+          <td colspan="4" class="button">Add a contact</td>
+        </tr>
+        <tr id="smit-button">
+          <td colspan="4" class="button">Submit</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="app.js"></script>
   </body>
 </html>
