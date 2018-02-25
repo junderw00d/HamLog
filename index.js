@@ -1,8 +1,6 @@
 const {app} = require('electron');
 const {BrowserWindow} = require('electron');
 
-
-
 app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     title:"HamLog",
@@ -49,3 +47,17 @@ defaultPath:app.getPath("desktop")
     if (filename) event.sender.send('selected-directory', filename)
   })
 })
+
+ipc.on("settings",function (event) {
+  var settingsWindow = new BrowserWindow({
+    title:"HamLog",
+    titleBarStyle: "hiddenInset",
+    width:450,
+    height:400
+  });
+  settingsWindow.loadURL('file://' + __dirname + '/settings.html');
+});
+
+ipc.on("uninstall",function(event) {
+  event.sender.send("hi", app.getAppPath())
+});
