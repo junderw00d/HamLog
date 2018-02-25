@@ -112,3 +112,6 @@ width:100%;
 ::-webkit-input-placeholder {
     text-transform: none;
 }
+.dummy {
+  display:none;
+}
