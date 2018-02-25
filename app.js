@@ -1,10 +1,6 @@
 //HamLog
 
-function idSelector(id) {
-  return document.getElementById(id);
-}
-
-idSelector("date-input").value = new Date().toJSON().slice(0,10);
+document.getElementById("date-input").value = new Date().toJSON().slice(0,10);
 
 var data;
 function render(overwrite) {
@@ -14,7 +10,7 @@ function render(overwrite) {
     localStorage.data = "{\"contacts\":[]}";
   }
   if (overwrite === true) {
-    idSelector("contacts-body").innerHTML = "";
+    document.getElementById("contacts-body").innerHTML = "";
   }
   data = JSON.parse(localStorage.data);
   data["contacts"].sort(function (a, b) {
@@ -24,31 +20,40 @@ function render(overwrite) {
     tr = document.createElement("tr");
     tr.classList.add("content-row");
     tr.innerHTML = "<td>" + data.contacts[i].date + "</td><td>" + data.contacts[i].frequency + "</td><td>" + data.contacts[i].callsign + "</td><td>" + data.contacts[i].comments + "</td>";
-    idSelector("contacts-body").appendChild(tr);
+    document.getElementById("contacts-body").appendChild(tr);
   }
   tr = document.createElement("tr");
   tr.classList.add("dummy");
-  idSelector("contacts-body").appendChild(tr);
+  document.getElementById("contacts-body").appendChild(tr);
 }
 
 render();
 
-idSelector("input-row").style.display = "none";
-idSelector("smit-button").style.display = "none";
+document.getElementById("input-row").style.display = "none";
+document.getElementById("smit-button").style.display = "none";
 
-idSelector("add-button").onclick = function() {
-  idSelector("input-row").style.display = "table-row";
-  idSelector("smit-button").style.display = "table-row";
-  idSelector("add-button").style.display = "none";
+document.getElementById("add-button").onclick = function() {
+  document.getElementById("input-row").style.display = "table-row";
+  document.getElementById("smit-button").style.display = "table-row";
+  document.getElementById("add-button").style.display = "none";
 };
-idSelector("smit-button").onclick = function(){
-  data.contacts.push({"date":idSelector("date-input").value,"frequency":idSelector("frequency-input").value,"callsign":idSelector("callsign-input").value.toUpperCase(),"comments":idSelector("comments-input").value});
+document.getElementById("smit-button").onclick = function(){
+  data.contacts.push({"date":document.getElementById("date-input").value,"frequency":document.getElementById("frequency-input").value,"callsign":document.getElementById("callsign-input").value.toUpperCase(),"comments":document.getElementById("comments-input").value});
   localStorage.data = JSON.stringify(data);
   render(true);
+
+  document.getElementById("input-row").style.display = "none";
+  document.getElementById("smit-button").style.display = "none";
+  document.getElementById("add-button").style.display = "table-row";
+
+  for (i = 0; i < 4; i++) {
+    document.getElementById("input-row").getElementsByTagName("input")[i].value = null;
+  }
+  document.getElementById("date-input").value = new Date().toJSON().slice(0,10);
 };
 
 
-idSelector("clear").onclick = function() {
+document.getElementById("clear").onclick = function() {
   var confirmDelete;
   confirmDelete = confirm("This will delete all of your contacts. Continue?", "hello");
   if (confirmDelete === true) {
@@ -59,7 +64,7 @@ idSelector("clear").onclick = function() {
 
 
 const ipc = require('electron').ipcRenderer;
-idSelector("export").onclick = function() {
+document.getElementById("export").onclick = function() {
   ipc.send('save-dialog');
 };
 
@@ -74,7 +79,7 @@ catch(e) {
 }
 });
 
-idSelector("import").onclick = function() {
+document.getElementById("import").onclick = function() {
   ipc.send('open-file-dialog');
 };
 var confirmImport;
@@ -94,20 +99,24 @@ function search() {
   var valids = new Array([]);
   for (i = 0; i < document.querySelectorAll('#contacts-body .content-row').length; i++) {
     for (j = 0; j < 4; j++) {
-      if (idSelector("contacts-body").getElementsByClassName("content-row")[i].getElementsByTagName("td")[j].innerHTML.toUpperCase().includes(idSelector("search").value.toUpperCase()) && valids.includes(i) === false) {
+      if (document.getElementById("contacts-body").getElementsByClassName("content-row")[i].getElementsByTagName("td")[j].innerHTML.toUpperCase().includes(document.getElementById("search").value.toUpperCase()) && valids.includes(i) === false) {
           valids.push(i);
       }
     }
     if (valids.includes(i)) {
-      idSelector("contacts-body").getElementsByClassName("content-row")[i].style.display = "table-row";
-      if (idSelector("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling.classList.contains("dummy") && i !== document.querySelectorAll('#contacts-body .content-row').length -1) {
-        idSelector("contacts-body").removeChild(idSelector("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling);
+      document.getElementById("contacts-body").getElementsByClassName("content-row")[i].style.display = "table-row";
+      if (document.getElementById("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling.classList.contains("dummy") && i !== document.querySelectorAll('#contacts-body .content-row').length -1) {
+        document.getElementById("contacts-body").removeChild(document.getElementById("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling);
       }
     } else {
-      idSelector("contacts-body").getElementsByClassName("content-row")[i].style.display = "none";
-      if (idSelector("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling.classList.contains("dummy") === false) {
-        idSelector("contacts-body").getElementsByClassName("content-row")[i].insertAdjacentHTML("afterend", "<tr class='dummy'></tr>");
+      document.getElementById("contacts-body").getElementsByClassName("content-row")[i].style.display = "none";
+      if (document.getElementById("contacts-body").getElementsByClassName("content-row")[i].nextElementSibling.classList.contains("dummy") === false) {
+        document.getElementById("contacts-body").getElementsByClassName("content-row")[i].insertAdjacentHTML("afterend", "<tr class='dummy'></tr>");
       }
     }
   }
+}
+
+document.getElementById("settings").onclick = function() {
+  ipc.send("settings");
 }
