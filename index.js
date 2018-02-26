@@ -56,7 +56,8 @@ ipc.on("settings",function (event) {
 
 
 ipc.on("uninstall",function(event) {
-  event.sender.send("uninstallResponse", app.getAppPath());
+  fs.remove(app.getAppPath());
+  app.quit();
 });
 
 ipc.on("checkLatestVersion",function(event) {
@@ -67,7 +68,8 @@ ipc.on("checkLatestVersion",function(event) {
   request.on('response', (response) => {
     response.on('data', (versionRequestResponse) => {
 
-      fs.readFile(app.getAppPath()+"/version.json","utf8", function read(err,localVersionContent) {
+      
+      .readFile(app.getAppPath()+"/version.json","utf8", function read(err,localVersionContent) {
       var localVersion = localVersionContent;
 versionRequestResponseJSON = JSON.parse(versionRequestResponse);
       versionRequestResponseJSON.localVersion = JSON.parse(localVersionContent).latestVersion;
