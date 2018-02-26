@@ -7,17 +7,12 @@ document.getElementById("uninstall").onclick = function() {
   }
 };
 
-
 document.getElementById("check").onclick = function() {
-alert("hi");
 ipc.send("checkLatestVersion");
 };
 
 ipc.on('versionResponse', function (event, rrr) {
-  var latestVersion = JSON.parse(rrr).currentVersion;
-  fs.readFile(version.json,function read(err,content) {
-    var localVersion = content;
-
-    alert("Local version: " + localVersion + "Latest Version: " + latestVersion);
-  });
+  var versionData = JSON.parse(rrr);
+  document.getElementById("version").innerHTML = "Local version: " + versionData.localVersion;
+  document.getElementById("version-latest").innerHTML = "Latest version: " + versionData.latestVersion
 });
