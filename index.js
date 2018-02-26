@@ -7,13 +7,6 @@ app.on('ready', function() {
     titleBarStyle: "hiddenInset",
   });
   mainWindow.loadURL('file://' + __dirname + '/app.html');
-
-  /*
-  mainWindow.on("resize", function() {
-      mainWindow.webContents.send('message', mainWindow.getSize());
-  });
-  */
-
 });
 
 const ipc = require('electron').ipcMain;
@@ -49,7 +42,7 @@ defaultPath:app.getPath("desktop")
 })
 
 ipc.on("settings",function (event) {
-  var settingsWindow = new BrowserWindow({
+   var settingsWindow = new BrowserWindow({
     title:"HamLog",
     titleBarStyle: "hiddenInset",
     width:450,
@@ -58,6 +51,21 @@ ipc.on("settings",function (event) {
   settingsWindow.loadURL('file://' + __dirname + '/settings.html');
 });
 
+
+var fs = require("fs-extra");
 ipc.on("uninstall",function(event) {
-  event.sender.send("hi", app.getAppPath())
+
+});
+
+ipc.on("checkLatestVersion",function(event) {
+  const {net} = require('electron')
+  const request = net.request({
+      url: 'https://raw.githubusercontent.com/KoalaMuffin/HamLog/master/version.json',
+  });
+  request.on('response', (response) => {
+    response.on('data', (versionRequestData) => {
+      event.sender.send("versionResponse", versionRequestData);
+    });
+  });
+  request.end()
 });
