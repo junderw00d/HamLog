@@ -8,9 +8,6 @@ document.getElementById("uninstall").onclick = function() {
     ipc.send("uninstall");
   }
 };
-ipc.on("uninstallResponse", function (event, ooo) {
-  alert(ooo);
-});
 
 document.getElementById("check").onclick = function() {
 ipc.send("checkLatestVersion");
