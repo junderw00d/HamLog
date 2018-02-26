@@ -1,6 +1,8 @@
 const {app} = require('electron');
 const {BrowserWindow} = require('electron');
 
+var fs = require("fs-extra");
+
 app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     title:"HamLog",
