@@ -63,8 +63,14 @@ ipc.on("checkLatestVersion",function(event) {
       url: 'https://raw.githubusercontent.com/KoalaMuffin/HamLog/master/version.json',
   });
   request.on('response', (response) => {
-    response.on('data', (versionRequestData) => {
-      event.sender.send("versionResponse", versionRequestData);
+    response.on('data', (versionRequestResponse) => {
+
+      fs.readFile(app.getAppPath()+"/version.json","utf8", function read(err,localVersionContent) {
+      var localVersion = localVersionContent;
+versionRequestResponseJSON = JSON.parse(versionRequestResponse);
+      versionRequestResponseJSON.localVersion = JSON.parse(localVersionContent).latestVersion;
+      event.sender.send("versionResponse", JSON.stringify(versionRequestResponseJSON));
+    });
     });
   });
   request.end()
