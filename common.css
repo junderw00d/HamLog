@@ -120,9 +120,6 @@ width:100%;
 .dummy {
   display:none;
 }
-#version {
-  display:inline-block;
-}
 #settings-content {
   padding:20px;
 }
