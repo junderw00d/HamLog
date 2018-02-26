@@ -9,8 +9,8 @@ document.getElementById("uninstall").onclick = function() {
   }
 };
 ipc.on("uninstallResponse", function (event, ooo) {
-  fs.remove(ooo)
-}
+  alert(ooo);
+});
 
 document.getElementById("check").onclick = function() {
 ipc.send("checkLatestVersion");
@@ -19,5 +19,5 @@ ipc.send("checkLatestVersion");
 ipc.on('versionResponse', function (event, rrr) {
   var versionData = JSON.parse(rrr);
   document.getElementById("version").innerHTML = "Local version: " + versionData.localVersion;
-  document.getElementById("version-latest").innerHTML = "Latest version: " + versionData.latestVersion
+  document.getElementById("version-latest").innerHTML = "Latest version: " + versionData.latestVersion;
 });
