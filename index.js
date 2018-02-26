@@ -52,9 +52,9 @@ ipc.on("settings",function (event) {
 });
 
 
-var fs = require("fs-extra");
-ipc.on("uninstall",function(event) {
 
+ipc.on("uninstall",function(event) {
+  event.sender.send("uninstallResponse", app.getAppPath());
 });
 
 ipc.on("checkLatestVersion",function(event) {
