@@ -10,4 +10,4 @@ cd HamLog
 npm install
 npm start
 </pre>
-Electron requires NodeJS and NPM, I believe.
+It might be easier to <a href="https://github.com/KoalaMuffin/HamLog/releases/tag/v1.3.0-beta.1">download the latest release</a>, which is only for Mac.
