@@ -19,7 +19,7 @@ function render(overwrite) {
   for (i=0; i < data.contacts.length; i++) {
     tr = document.createElement("tr");
     tr.classList.add("content-row");
-    tr.innerHTML = "<td>" + data.contacts[i].date + "</td><td>" + data.contacts[i].frequency + "</td><td>" + data.contacts[i].callsign + "</td><td>" + data.contacts[i].comments + "</td>";
+    tr.innerHTML = "<td>" + data.contacts[i].date + "</td><td>" + data.contacts[i].frequency + "</td><td>" + data.contacts[i].callsign + "</td><td>" + data.contacts[i].power + "</td><td>" + data.contacts[i].comments + "</td><td class='edit-cell'><button class='button cell-button edit' onclick='addEdit(" + i + ")'>Edit</button></td>";
     document.getElementById("contacts-body").appendChild(tr);
   }
   tr = document.createElement("tr");
@@ -31,27 +31,31 @@ render();
 
 document.getElementById("input-row").style.display = "none";
 document.getElementById("smit-button").style.display = "none";
+document.getElementById("delete-button").style.display = "none";
+document.getElementById("save-button").style.display = "none";
 
 document.getElementById("add-button").onclick = function() {
-  document.getElementById("input-row").style.display = "table-row";
-  document.getElementById("smit-button").style.display = "table-row";
-  document.getElementById("add-button").style.display = "none";
+  addEdit();
 };
 document.getElementById("smit-button").onclick = function(){
-  data.contacts.push({"date":document.getElementById("date-input").value,"frequency":document.getElementById("frequency-input").value,"callsign":document.getElementById("callsign-input").value.toUpperCase(),"comments":document.getElementById("comments-input").value});
+  data.contacts.push({"date":document.getElementById("date-input").value,"frequency":document.getElementById("frequency-input").value,"callsign":document.getElementById("callsign-input").value.toUpperCase(),"comments":document.getElementById("comments-input").value,"power":document.getElementById("power-input").value});
   localStorage.data = JSON.stringify(data);
   render(true);
 
+  resetInput()
+};
+
+function resetInput() {
   document.getElementById("input-row").style.display = "none";
   document.getElementById("smit-button").style.display = "none";
+  document.getElementById("save-button").style.display = "none";
+  document.getElementById("delete-button").style.display = "none";
   document.getElementById("add-button").style.display = "table-row";
-
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 5; i++) {
     document.getElementById("input-row").getElementsByTagName("input")[i].value = null;
   }
   document.getElementById("date-input").value = new Date().toJSON().slice(0,10);
-};
-
+}
 
 document.getElementById("clear").onclick = function() {
   var confirmDelete;
@@ -98,7 +102,7 @@ function search() {
   var i, j;
   var valids = new Array([]);
   for (i = 0; i < document.querySelectorAll('#contacts-body .content-row').length; i++) {
-    for (j = 0; j < 4; j++) {
+    for (j = 0; j < 5; j++) {
       if (document.getElementById("contacts-body").getElementsByClassName("content-row")[i].getElementsByTagName("td")[j].innerHTML.toUpperCase().includes(document.getElementById("search").value.toUpperCase()) && valids.includes(i) === false) {
           valids.push(i);
       }
@@ -119,4 +123,41 @@ function search() {
 
 document.getElementById("settings").onclick = function() {
   ipc.send("settings");
+}
+
+function saveEdit(number) {
+  data.contacts[number] = {"date":document.getElementById("date-input").value,"frequency":document.getElementById("frequency-input").value,"callsign":document.getElementById("callsign-input").value.toUpperCase(),"comments":document.getElementById("comments-input").value,"power":document.getElementById("power-input").value}
+  localStorage.data = JSON.stringify(data);
+  render(true);
+  resetInput();
+}
+
+function addEdit(edit) {
+  document.getElementById("input-row").style.display = "table-row";
+  document.getElementById("add-button").style.display = "none";
+
+  if (typeof edit !== "undefined") {
+    document.getElementById("save-button").style.display = "table-row";
+    document.getElementById("save-button").onclick = function() {
+      saveEdit(edit);
+    };
+
+    document.getElementById("delete-button").style.display = "table-cell";
+    document.getElementById("delete-button").onclick = function() {
+      data.contacts.splice(edit, 1);
+      localStorage.data = JSON.stringify(data);
+      render(true);
+      resetInput();
+    }
+
+    for (i = 0; i < 5; i ++) {
+      document.getElementById("input-row").getElementsByTagName("input")[i].value = document.getElementById("contacts-body").getElementsByTagName("tr")[edit].getElementsByTagName("td")[i].innerHTML;
+    }
+  } else {
+    document.getElementById("smit-button").style.display = "table-row";
+  }
+}
+
+document.getElementById("cancel-button").onclick = function() {
+  resetInput();
 }
