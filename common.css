@@ -126,3 +126,28 @@ width:100%;
 legend {
   font-size:16px;
 }
+#version-message {
+  display:none;
+}
+li {
+  padding:0px;
+}
+.edit {
+  display:none;
+  font-size:8px;
+}
+.cell-button {
+  height:100% !important;
+  margin:0px !important;
+  vertical-align: middle;
+  width:100%;
+}
+#contacts-table tr:hover .edit {
+  display:inline-block;
+}
+#edit-header {
+  width:50px;
+}
+.edit-cell {
+  padding:0px !important;
+}
