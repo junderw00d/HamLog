@@ -22,7 +22,9 @@
           <th><h5>Date</h5></th>
           <th><h5>Frequency</h5></th>
           <th><h5>Callsign</h5></th>
+          <th><h5>Power in Watts</h5></th>
           <th><h5>Comments</h5></th>
+          <th id="edit-header"><h5></h5></th>
         </tr>
       </thead>
       <tbody id="contacts-body">
@@ -32,13 +34,18 @@
           <td><input placeholder="Date" id="date-input" type="date"></td>
           <td><input placeholder="Frequency" id="frequency-input" type="number" step="0.01"></td>
           <td><input placeholder="Callsign" id="callsign-input"></td>
+          <td><input placeholder="Power" id="power-input" type="number" step="1"></td>
           <td><input placeholder="Comments" id="comments-input"></td>
+          <td><button class="button cell-button" id="cancel-button">Cancel</button><button class="button cell-button" id="delete-button">Delete</button></td>
         </tr>
         <tr id="add-button">
-          <td colspan="4" class="button">Add a contact</td>
+          <td colspan="6" class="button">Add a contact</td>
         </tr>
         <tr id="smit-button">
-          <td colspan="4" class="button">Submit</td>
+          <td colspan="6" class="button">Submit</td>
+        </tr>
+        <tr id="save-button">
+          <td colspan="6" class="button">Save</td>
         </tr>
       </tbody>
     </table>
