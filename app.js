@@ -1,5 +1,7 @@
 //HamLog
 
+var escapeHtml = require('escape-html');
+
 document.getElementById("date-input").value = new Date().toJSON().slice(0,10);
 
 var data;
@@ -19,7 +21,7 @@ function render(overwrite) {
   for (i=0; i < data.contacts.length; i++) {
     tr = document.createElement("tr");
     tr.classList.add("content-row");
-    tr.innerHTML = "<td>" + data.contacts[i].date + "</td><td>" + data.contacts[i].frequency + "</td><td>" + data.contacts[i].callsign + "</td><td>" + data.contacts[i].power + "</td><td>" + data.contacts[i].comments + "</td><td class='edit-cell'><button class='button cell-button edit' onclick='addEdit(" + i + ")'>Edit</button></td>";
+    tr.innerHTML = "<td>" + escapeHtml(data.contacts[i].date) + "</td><td>" + escapeHtml(data.contacts[i].frequency) + "</td><td>" + escapeHtml(data.contacts[i].callsign) + "</td><td>" + escapeHtml(data.contacts[i].power) + "</td><td>" + escapeHtml(data.contacts[i].comments) + "</td><td class='edit-cell'><button class='button cell-button edit' onclick='addEdit(" + i + ")'>Edit</button></td>";
     document.getElementById("contacts-body").appendChild(tr);
   }
   tr = document.createElement("tr");
@@ -160,4 +162,4 @@ function addEdit(edit) {
 
 document.getElementById("cancel-button").onclick = function() {
   resetInput();
-}
+};
