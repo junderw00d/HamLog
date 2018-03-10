@@ -1,7 +1,7 @@
 body {
   padding:0;
   margin:0;
-  font-family:system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-family:caption, system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
   font-size:13px;
   background-color:white;
 }
@@ -135,12 +135,14 @@ li {
 .edit {
   display:none;
   font-size:8px;
+
 }
 .cell-button {
   height:100% !important;
   margin:0px !important;
   vertical-align: middle;
-  width:100%;
+    width:100%;
+
 }
 #contacts-table tr:hover .edit {
   display:inline-block;
@@ -150,4 +152,14 @@ li {
 }
 .edit-cell {
   padding:0px !important;
+}
+
+#contacts-table thead tr :nth-last-child(-n+2) {
+  border-right:none;
+}
+fieldset {
+  margin:10px;
+}
+#beepFieldset {
+  text-align:center;
 }
