@@ -68,13 +68,11 @@ ipc.on("checkLatestVersion",function(event) {
   request.on('response', (response) => {
     response.on('data', (versionRequestResponse) => {
 
-      
-      fs.readFile(app.getAppPath()+"/version.json","utf8", function read(err,localVersionContent) {
-      var localVersion = localVersionContent;
+
 versionRequestResponseJSON = JSON.parse(versionRequestResponse);
-      versionRequestResponseJSON.localVersion = JSON.parse(localVersionContent).latestVersion;
+
       event.sender.send("versionResponse", JSON.stringify(versionRequestResponseJSON));
-    });
+
     });
   });
   request.end()
