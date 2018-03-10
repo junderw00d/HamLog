@@ -11,7 +11,7 @@
     </header>
 <div id="settings-content">
 <fieldset>
-  <legend>Version</legend>
+  <legend>About</legend>
   <button class="button" id="check">Check for updates</button>
   <pre id="version"></pre>
   <pre id="version-latest"></pre>
@@ -22,11 +22,22 @@
       <li><a href="#">Download</a> the latest version of HamLog.</li>
       <li>Open the file and press "Import" to import your data.</li>
     </ol>
+  </div>
+  <button class="button" id="reportBug">Report a bug</button>
+  <button class="button" id="viewSource">View source code</button>
+  <p><small id="appInfo"></small></p>
 </fieldset>
 <fieldset>
   <legend>Uninstall</legend>
   <p>This will permanently delete HamLog from your system. You can export your data in the table-view window.</p>
   <button class="button" id="uninstall">Uninstall</button>
+</fieldset>
+<!--<fieldset>
+  <legend>Default input data</legend>
+  <p>You can set the default values for contact creation inputs so that everytime you add a contact, the inputs are auto filled.</p>
+</fieldset>-->
+<fieldset id="beepFieldset">
+<button class="button" id="beep">Beep</button>
 </fieldset>
 </div>
 <script src="settings.js"></script>
