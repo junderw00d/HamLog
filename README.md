@@ -1,4 +1,4 @@
-# HamLog. Coming today, March 10 at 9:30 EST.
+# HamLog. Coming today, March 10 at 10:00 EST.
 HamLog is a work in progress software I am developing for logging ham radio contacts. It will use <a href="https://electronjs.org">Electron</a>. It is my first project with this framework. You can see an image of how it looks so far below.
 <img src="https://raw.githubusercontent.com/KoalaMuffin/HamLog/master/Preview.png">
 <br>
