@@ -1,17 +1,19 @@
 {
   "name": "HamLog",
-  "version": "1.3.0-beta.1",
+  "version": "v1.0.0",
   "description": "Radio logging software",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "author": "[REDACTED]",
+  "author": "[REDACTED FOR WEB RELEASE]",
   "license": "ISC",
   "dependencies": {
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "escape-html": "^1.0.3"
   },
   "devDependencies": {
+    "electron": "^2.0.0-beta.1",
     "electron-packager": "^11.0.1"
   }
 }
