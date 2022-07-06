@@ -10,7 +10,7 @@ HamLog was officially released on March 10, 2018. It is my first project to use 
 <h3>Develop & Windows / Linux</h3>
 <p>If you want to look into developing HamLog or would like to run it on a Windows or Linux machine (to which I cannot gaurentee functionality), I suggest running it through npm.</p>
 <pre>
-sudo git clone https://github.com/KoalaMuffin/HamLog.git
+sudo git clone https://github.com/junderw00d/HamLog.git
 cd HamLog
 npm install
 npm start
